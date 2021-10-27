@@ -8,11 +8,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", (req, res, next) => {
-  //console.log(req.body);
+  console.log(req);
   next();
 });
 
 app.use("/gitarshop", gitarEndpoint);
+app.use(errorMiddleware);
 
 app.listen(PORT, () => {
   console.log(`Listening at port: ${PORT}`);
