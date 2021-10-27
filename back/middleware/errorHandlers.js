@@ -1,5 +1,8 @@
 function errorMiddleware(err, req, res, next) {
-  console.log(err);
+  if (err.status !== undefined && err.message !== undefined) {
+    res.status(err.status).json({ error: err.message });
+  }
+  next();
 }
 
 module.exports = errorMiddleware;
