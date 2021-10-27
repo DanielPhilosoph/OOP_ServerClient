@@ -7,25 +7,6 @@ async function getGuitars() {
   }
 }
 
-async function createGuitars() {
-  try {
-    let response = await axios.post(
-      "http://localhost:3000/gitarshop/add",
-      {
-        kind: "BassGuitar",
-        munifuctureYear: 1999,
-        brand: "daniel's",
-        price: 12000,
-        used: false,
-      },
-      { header: { "Content-Type": "appliction/json" } }
-    );
-    console.log(response);
-  } catch (error) {
-    console.log(error.response);
-  }
-}
-
 function createElement(
   tagName,
   children = [],
@@ -72,7 +53,7 @@ function render(guitars) {
     let thID = createElement("th", [guitar._id], [], { scope: "col" });
     let td2 = createElement("td", [guitar._munifuctureYear]);
     let td3 = createElement("td", [guitar._brand]);
-    let td4 = createElement("td", [guitar._numberOfStrings]);
+    let td4 = createElement("td", [guitar._numberOfString]);
     let td5 = createElement("td", [guitar._used]);
     let td6 = createElement("td", [guitar._longNeck]);
     let td7 = createElement("td", [guitar._price]);
@@ -85,9 +66,7 @@ function render(guitars) {
 }
 
 async function main() {
-  let x = await createGuitars();
   let guitars = await getGuitars();
-  console.log(guitars);
   render(guitars);
 }
 main();

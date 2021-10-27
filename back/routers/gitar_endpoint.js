@@ -219,7 +219,8 @@ function addGuitar(kind, id, reqBody) {
         reqBody.price,
         reqBody.numberOfString,
         reqBody.used,
-        id
+        id,
+        reqBody.longNeck
       )
     );
   } else if (kind === "BassGuitar") {
