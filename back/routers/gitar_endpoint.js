@@ -2,7 +2,6 @@ const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 const guitars = [];
-
 const MAX_GUITARS = 1000;
 
 router.get("/", (req, res, next) => {
@@ -300,7 +299,6 @@ function basicGuitarValidation(
 module.exports = router;
 
 class ClassicGuitar {
-  #id;
   constructor(
     munifuctureYear,
     brand,
@@ -314,7 +312,7 @@ class ClassicGuitar {
     this._price = price;
     this._numberOfString = numberOfString;
     this._used = used;
-    this.#id = id;
+    this._id = id;
   }
 
   play() {
@@ -355,7 +353,7 @@ class ClassicGuitar {
   }
 
   get id() {
-    return this.#id;
+    return this._id;
   }
 
   static detectSound(sound) {

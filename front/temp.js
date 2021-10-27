@@ -89,14 +89,10 @@ try {
 }
 
 try {
-  let response = await axios.post(
-    "http://localhost:3000/gitarshop/update/1",
-    {
-      price: 1200,
-      used: true,
-    },
-    { header: { "content-type": "appliction/json", username: "daniel" } }
-  );
+  let response = await axios.post("http://localhost:3000/gitarshop/update/1", {
+    price: 1200,
+    used: true,
+  });
   console.log(response.data);
 } catch (error) {
   console.log(error);
